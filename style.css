@@ -1,0 +1,252 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Overpass-Regular", Helvetica, Arial, sans-serif;
+  background-color: #141519;
+}
+
+/* Center the layout card globally on the screen */
+.desktop-design {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Base Card Styles */
+.rating-box {
+  position: relative;
+  width: 100%;
+  max-width: 412px; /* Perfect responsive card max width */
+  height: 416px;
+  background-color: #212832;
+  border-radius: 30px; /* Reduced from 60px to fit standard card aesthetics */
+  padding: 32px; /* Standard structural padding instead of absolute placements */
+}
+
+/* Star Icon Wrapper */
+.desktop-design .icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #282f39;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.desktop-design .icon-star {
+  height: 16px;
+  width: 16px;
+  background-image: url(./icon-star.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.desktop-design .title {
+  font-family: "Overpass-ExtraBold", Helvetica, sans-serif;
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.desktop-design .paragraph {
+  color: #969fab; /* Muted grey matching standard UI components */
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 32px;
+}
+
+/* Rating Buttons Container */
+.desktop-design .button-rate {
+  display: flex;
+  justify-content: space-between; /* Evenly spaces the 5 circular buttons */
+  gap: 12px; /* Small safe gap spacing */
+  margin-bottom: 32px;
+}
+
+.button {
+  width: 48px;  /* Resized slightly down from 60px to cleanly fit side-by-side */
+  height: 48px;
+  border-radius: 50%;
+  background-color: #272e38;
+  font-family: "Overpass-Bold", sans-serif;
+  font-weight: 800;
+  color: #88909b;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.active{
+    background-color: white;
+}
+
+.button:hover {
+  background-color: #fc7614;
+  color: #ffffff;
+}
+
+/* Submit Block */
+.button-submit {
+  width: 100%;
+}
+
+#submit {
+  width: 100%;
+  height: 45px;
+  background-color: #fc7614;
+  border-radius: 22px;
+  border: none;
+  font-family: "Overpass-Bold", Helvetica, sans-serif;
+  font-weight: 700;
+  color: black;
+  font-size: 15px;
+  letter-spacing: 2px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #ffffff;
+}
+
+.thankyou-box {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start; /* Centers elements vertically (top to bottom) */
+  align-items: center;     /* FIX: Centers elements horizontally (left to right) */
+  text-align: center;      /* Fix: Keeps text aligned nicely in the center */
+  width: 100%;
+  max-width: 412px; 
+  height: 416px;
+  background-color: #212832;
+  border-radius: 30px; 
+  padding: 32px;           /* Gives inner elements safe breathing room */
+}
+
+.thankyou-icon {
+  width: 162px;            /* Adjusted to accommodate typical illustration dimensions */
+  height: 108px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;     /* Swapped margin-top for bottom spacing to push down content */
+}
+
+/* Optional: Ensures the SVG graphic scales nicely inside its parent div */
+.thankyou-icon img {
+  width: 100%;
+  height: auto;
+}
+
+.result {
+  width: auto;             /* FIX: Removed 100px so text doesn't break into multiple lines */
+  background-color: #272e38; /* Matches the theme profile */
+  color: #fc7614;          /* Distinct brand color accent */
+  font-size: 15px;
+  padding: 6px 16px;       /* Gives the tag background a pill-like style */
+  border-radius: 22px;
+  margin-bottom: 32px; 
+}
+.thankyou-box h1{
+    font-size: 2.0em;
+    font-weight: 600;
+    color:white;
+    margin-bottom: 32px; 
+}
+
+.thankyou-box p{
+    font-size: 15px;
+    color: hsl(217, 12%, 63%);
+    line-height: 20px;
+    font-weight: 100;
+}
+
+
+@media (max-width: 600px) {
+  
+  /* 1. Remove the huge desktop spacing and center the card */
+  .desktop-design {
+    padding: 20px;
+    height: 100vh; /* Fill mobile screen exactly */
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 2. Make the container box fluid instead of fixed width */
+  .rating-box {
+    width: 100%;
+    max-width: 350px; /* Limits size on large phones */
+    height: auto; /* Allow box height to grow naturally with padding */
+    padding: 24px;
+    border-radius: 40px; /* Soften the corners slightly for small screens */
+    top: 0;
+    left: 0;
+  }
+
+  /* 3. Scale down the heading size slightly so text doesn't overflow */
+  .desktop-design .title {
+    font-size: 24px;
+    top: 120px;
+  }
+
+  /* 4. Fix width boundaries for mobile paragraph text */
+  .desktop-design .paragraph {
+    width: calc(100% - 44px);
+    font-size: 14px;
+    line-height: 22px;
+    top: 175px;
+  }
+
+  /* 5. Dynamically shrink the gap between the circular buttons */
+  .desktop-design .button-rate {
+    width: calc(100% - 44px);
+    top: 290px;
+    gap: 12px; /* Pulls circular buttons close together to fit the phone width */
+    justify-content: space-between;
+  }
+
+  /* 6. Scale the circular rating button sizes down slightly */
+  .button {
+    width: 45px;
+    height: 45px;
+    font-size: 14px;
+  }
+
+  /* 7. Readjust the position and width of the Submit bar */
+  .button-submit {
+    width: calc(100% - 58px);
+    top: 365px;
+  }
+
+  #submit {
+    width: 100%;
+    height: 45px;
+    border-radius: 22px;
+  }
+
+  .thankyou-box{
+    width: 100%;
+    max-width: 350px; /* Limits size on large phones */
+    height: auto; /* Allow box height to grow naturally with padding */
+    padding: 24px;
+    border-radius: 40px; /* Soften the corners slightly for small screens */
+    top: 0;
+    left: 0;
+  }
+}
+
